@@ -5,7 +5,7 @@
 ## 添加脚本命令
 
 ```bash
-ql repo https://github.com/nashaofu/qinglong.git "*" "utils" "utils" "release" "js"
+ql repo https://github.com/richard4fan/qinglong.git "*" "utils" "utils" "release" "js"
 ```
 
 安装 nodejs 依赖 `axios` `cheerio`

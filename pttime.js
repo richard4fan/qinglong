@@ -9,7 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const axios_1 = __importDefault(require("axios"));
 require("./utils/proxy");
+/*
 const url = 'https://www.pttime.org/attendance.php';
+*/
+const url = process.env.PTTIME_SIGN_URL
 async function main() {
     console.log('开始...');
     const { data } = await axios_1.default.get(url, {

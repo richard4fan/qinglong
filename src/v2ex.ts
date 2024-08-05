@@ -1,6 +1,6 @@
 /**
  * 青龙脚本任务
- * cron: 7 9 * * *
+ * cron: 7 19 * * *
  */
 import axios from 'axios';
 import cheerio from 'cheerio';

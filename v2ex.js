@@ -28,6 +28,7 @@ async function main() {
     const onclick = $button.attr('onclick');
     const [, once] = onclick?.match(RedeemRegExp) || [];
     if (!once) {
+        QLAPI.notify('v2ex', '签到失败: 没有获取到once参数，请检查环境变量 V2EX_COOKIE 与脚本');
         throw new Error('签到失败: 没有获取到once参数，请检查环境变量 V2EX_COOKIE 与脚本');
     }
     const missionDailyRedeemUrl = `${url.missionDailyRedeem}?once=${once}`;
@@ -39,8 +40,10 @@ async function main() {
     });
     const $2 = cheerio_1.default.load(missionDailyRedeemResult);
     if (!$2('#Main span.gray li.fa-ok-sign').parent().text().includes('每日登录奖励已领取')) {
+        QLAPI.notify('v2ex', '签到失败: 获取签到结果失败');
         throw new Error('签到失败: 获取签到结果失败');
     }
+    QLAPI.notify('v2ex', '签到成功');
     console.log('签到成功');
 }
 main();

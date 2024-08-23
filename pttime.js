@@ -21,11 +21,14 @@ async function main() {
         },
     });
     if (data.includes('<title>PTT :: 登录 - Powered by NexusPHP</title>')) {
+        QLAPI.notify('pttime', '签到失败：登录已经过期');
         throw new Error('签到失败：登录已经过期');
     }
     if (!data.includes('<title>PTT :: 签到 - Powered by NexusPHP</title>')) {
+        QLAPI.notify('pttime', `签到失败：${data}`);
         throw new Error(`签到失败：${data}`);
     }
+    QLAPI.notify('pttime', '签到成功');
     console.log('签到成功');
 }
 main();
